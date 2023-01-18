@@ -16,5 +16,10 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
