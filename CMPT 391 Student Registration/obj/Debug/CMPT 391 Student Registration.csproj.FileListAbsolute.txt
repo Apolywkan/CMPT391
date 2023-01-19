@@ -1,0 +1,12 @@
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe.config
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.pdb
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.AssemblyReference.cache
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.SuggestedBindingRedirects.cache
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Properties.Resources.resources
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.GenerateResource.cache
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Login.resources
+E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Registration.resources
