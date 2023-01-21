@@ -21,10 +21,10 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-L6HCRV5P; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
-            // Zack: 
+            // Zach: LAPTOP-HUT8634L
             // Jasper: 
             // Salah: 
 
@@ -59,6 +59,37 @@ namespace CMPT_391_Student_Registration
             term_label.Text = year + " " + term + " Term";
 
             this.AcceptButton = class_search_btn;
+        }
+
+        private void class_search_btn_Click(object sender, EventArgs e)
+        {
+            if (class_search_box.Text.Length > 0)
+            {
+                //Gets term from the top left text box, term[0] will be year, term[1] will be semester
+                string[] term = term_label.Text.ToString().Split(' ');
+
+
+                myCommand.CommandText = "select * from Section where CourseID like '" + class_search_box.Text + 
+                    "%' and semester = '" + term[1] + "' and year = '" + term[0] + "'";
+
+                try
+                {
+                    myReader = myCommand.ExecuteReader();
+                    class_view.Rows.Clear();
+
+                    while (myReader.Read())
+                    {
+                        class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["time_slot_id"].ToString(),
+                            myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["capacity"].ToString(),
+                            myReader["enrollment"].ToString());
+                    }
+                    myReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Error");
+                }
+            }
         }
     }
 
