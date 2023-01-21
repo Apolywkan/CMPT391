@@ -10,3 +10,15 @@ E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj
 E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
 E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Login.resources
 E:\Documents\Homework\Computer Science\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Registration.resources
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe.config
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.pdb
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.AssemblyReference.cache
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.SuggestedBindingRedirects.cache
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Login.resources
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Properties.Resources.resources
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Registration.resources
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.GenerateResource.cache
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
+C:\Users\Britt\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
