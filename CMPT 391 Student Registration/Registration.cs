@@ -21,11 +21,11 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
-            // Jasper: 
+            // Jasper: LAPTOP-JPNKMR
             // Salah: 
             // Brittney: LAPTOP-L6HCRV5P
 
