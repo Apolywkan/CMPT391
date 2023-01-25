@@ -20,13 +20,13 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
-            // Jasper: 
+            // Jasper: LAPTOP-JPNKMR
             // Salah: 
-
+            // Brittney: LAPTOP-L6HCRV5P
 
             /* Starting the connection */
             /*  SqlConnection myConnection = new SqlConnection("user id=temp2;" + // Username
@@ -56,21 +56,32 @@ namespace CMPT_391_Student_Registration
             string username = username_input.Text;
             string password = password_input.Text;
 
-            if (username == "admin" && password == "password") //change later
-            {
-                Registration registrationForm = new Registration();
-                registrationForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.");
-            }
-        }
+            string queryString = "SELECT * FROM Logins WHERE username = @username AND password = @password";
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.AcceptButton = btn_login;
+            myCommand.CommandText = queryString;
+            myCommand.Parameters.AddWithValue("@username", username);
+            myCommand.Parameters.AddWithValue("@password", password);
+
+            try
+            {
+                myReader = myCommand.ExecuteReader();
+                while (myReader.Read())
+                {
+                    Console.WriteLine("username: " + myReader["username"]);
+                    Console.WriteLine("password: " + myReader["password"]);
+                    Registration registrationForm = new Registration();
+                    registrationForm.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid Username or Password");
+            }
+            finally
+            {
+                myReader.Close();
+            }
         }
     }
 }
