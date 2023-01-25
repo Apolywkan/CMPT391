@@ -17,6 +17,9 @@ namespace CMPT_391_Student_Registration
         public SqlConnection myConnection;
         public SqlCommand myCommand;
         public SqlDataReader myReader;
+        
+        //The logged in students Student ID (SID)
+        public int SID { get; set; }
         public Registration()
         {
             InitializeComponent();

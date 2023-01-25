@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMPT_391_Student_Registration
@@ -16,9 +9,16 @@ namespace CMPT_391_Student_Registration
         public SqlConnection myConnection;
         public SqlCommand myCommand;
         public SqlDataReader myReader;
+
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = btn_login;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             ///////////////////////////////
             String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
@@ -28,14 +28,6 @@ namespace CMPT_391_Student_Registration
             // Salah: 
             // Brittney: LAPTOP-L6HCRV5P
 
-            /* Starting the connection */
-            /*  SqlConnection myConnection = new SqlConnection("user id=temp2;" + // Username
-                                         "password=adminadmin;" + // Password
-                                         "server=localhost;" + // IP for the server
-                                                               //"Trusted_Connection=yes;" +
-                                         "database=ConnectTutorial; " + // Database to connect to
-                                         "connection timeout=30"); // Timeout in seconds */
-
             SqlConnection myConnection = new SqlConnection(connectionString); // Timeout in seconds
 
             try
@@ -44,39 +36,50 @@ namespace CMPT_391_Student_Registration
                 myCommand = new SqlCommand();
                 myCommand.Connection = myConnection; // Link the command stream to the connection
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.ToString(), "Error");
+                MessageBox.Show(ex.ToString(), "Error");
                 this.Close();
             }
-        }
+            ///////////////////////////////
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+            //Takes user input
             string username = username_input.Text;
             string password = password_input.Text;
 
+            //Find a matching value
             string queryString = "SELECT * FROM Logins WHERE username = @username AND password = @password";
 
             myCommand.CommandText = queryString;
             myCommand.Parameters.AddWithValue("@username", username);
             myCommand.Parameters.AddWithValue("@password", password);
 
+            //If successful then they can login
             try
             {
                 myReader = myCommand.ExecuteReader();
-                while (myReader.Read())
+                if (myReader.HasRows)
                 {
-                    Console.WriteLine("username: " + myReader["username"]);
-                    Console.WriteLine("password: " + myReader["password"]);
-                    Registration registrationForm = new Registration();
-                    registrationForm.Show();
-                    this.Hide();
+                    while (myReader.Read())
+                    {
+                        Console.WriteLine("SID: " + myReader["SID"]);
+                        Console.WriteLine("username: " + myReader["username"]);
+                        Console.WriteLine("password: " + myReader["password"]);
+                        Registration registrationForm = new Registration();
+                        registrationForm.SID = (int)myReader["SID"];
+                        registrationForm.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password");
                 }
             }
+            //If unsuccessful then they cannot login
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid Username or Password");
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
