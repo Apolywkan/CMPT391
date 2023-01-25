@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
             // Zach: LAPTOP-HUT8634L
             // Jasper: LAPTOP-JPNKMR
             // Salah: 
-
+            // Brittney: LAPTOP-L6HCRV5P
 
             /* Starting the connection */
             /*  SqlConnection myConnection = new SqlConnection("user id=temp2;" + // Username

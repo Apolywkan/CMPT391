@@ -27,6 +27,7 @@ namespace CMPT_391_Student_Registration
             // Zach: LAPTOP-HUT8634L
             // Jasper: LAPTOP-JPNKMR
             // Salah: 
+            // Brittney: LAPTOP-L6HCRV5P
 
 
             /* Starting the connection */
@@ -92,47 +93,6 @@ namespace CMPT_391_Student_Registration
             }
         }
     }
-
-    //private void CT_buttonSearch_Click(object sender, EventArgs e)
-    //{
-    //    myCommand.CommandText = "select * from cartype";
-    //    if (CT_tbCarTypeID.Text != "")
-    //        myCommand.CommandText += " where CarTypeID = " + CT_tbCarTypeID.Text;
-
-    //    if (CT_tbDescription.Text != "" && CT_tbCarTypeID.Text != "")
-    //        myCommand.CommandText += " and Description = '" + CT_tbDescription.Text + "'";
-    //    else if (CT_tbDescription.Text != "")
-    //        myCommand.CommandText += " where Description = '" + CT_tbDescription.Text + "'";
-
-    //    if (CT_tbDailyRate.Text != "" && (CT_tbCarTypeID.Text != "" || CT_tbDescription.Text != ""))
-    //        myCommand.CommandText += " and dailyRate = " + CT_tbDailyRate.Text;
-    //    else if (CT_tbDailyRate.Text != "")
-    //        myCommand.CommandText += " where dailyRate = " + CT_tbDailyRate.Text;
-
-    //    if (CT_tbWeeklyRate.Text != "" && (CT_tbCarTypeID.Text != "" || CT_tbDescription.Text != "" || CT_tbDailyRate.Text != ""))
-    //        myCommand.CommandText += " and weeklyRate = " + CT_tbWeeklyRate.Text;
-    //    else if (CT_tbWeeklyRate.Text != "")
-    //        myCommand.CommandText += " where weeklyRate = " + CT_tbWeeklyRate.Text;
-
-    //    if (CT_tbMonthlyRate.Text != "" && (CT_tbCarTypeID.Text != "" || CT_tbDescription.Text != "" || CT_tbDailyRate.Text != "" || CT_tbWeeklyRate.Text != ""))
-    //        myCommand.CommandText += " and monthlyRate = " + CT_tbMonthlyRate.Text;
-    //    else if (CT_tbMonthlyRate.Text != "")
-    //        myCommand.CommandText += " where monthlyRate = " + CT_tbMonthlyRate.Text;
-    //    try
-    //    {
-    //        /*MessageBox.Show(myCommand.CommandText);*/
-    //        myReader = myCommand.ExecuteReader();
-    //        CT_gridview.Rows.Clear();
-    //        while (myReader.Read())
-    //        {
-    //            CT_gridview.Rows.Add(myReader["CarTypeID"].ToString(), myReader["Description"].ToString(), myReader["dailyRate"].ToString(), myReader["weeklyRate"].ToString(), myReader["monthlyRate"].ToString());
-    //        }
-    //        myReader.Close();
-    //    }
-    //    catch (Exception e3)
-    //    {
-    //        MessageBox.Show(e3.ToString(), "Error");
-    //    }
 
 
 
