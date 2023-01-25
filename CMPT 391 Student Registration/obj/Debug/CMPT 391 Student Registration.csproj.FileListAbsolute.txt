@@ -34,3 +34,15 @@ C:\Users\zswen\OneDrive\Documents\GitHub\CMPT391\CMPT 391 Student Registration\o
 C:\Users\zswen\OneDrive\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
 C:\Users\zswen\OneDrive\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
 C:\Users\zswen\OneDrive\Documents\GitHub\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe.config
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.pdb
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.AssemblyReference.cache
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.SuggestedBindingRedirects.cache
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Login.resources
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Properties.Resources.resources
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Registration.resources
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.GenerateResource.cache
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
+C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
