@@ -25,7 +25,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
@@ -133,6 +133,16 @@ namespace CMPT_391_Student_Registration
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             }
+        }
+
+        private void register_button_Click(object sender, EventArgs e)
+        {
+            //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
+            DataGridView dtg = class_view;
+
+            String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
+
+            MessageBox.Show(class_selection);
         }
     }
 
