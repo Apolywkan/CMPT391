@@ -42,6 +42,7 @@
             this.room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_label = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.class_view)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             this.term_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(131)))), ((int)(((byte)(129)))));
             this.term_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.term_label.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.term_label.Location = new System.Drawing.Point(30, 37);
+            this.term_label.Location = new System.Drawing.Point(30, 20);
             this.term_label.Name = "term_label";
             this.term_label.Size = new System.Drawing.Size(257, 37);
             this.term_label.TabIndex = 3;
@@ -102,6 +103,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(131)))), ((int)(((byte)(129)))));
+            this.panel2.Controls.Add(this.user_label);
             this.panel2.Controls.Add(this.term_label);
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -125,7 +127,7 @@
             this.capacity,
             this.enrollment});
             this.class_view.Location = new System.Drawing.Point(313, 301);
-            this.class_view.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.class_view.Margin = new System.Windows.Forms.Padding(2);
             this.class_view.Name = "class_view";
             this.class_view.RowHeadersWidth = 51;
             this.class_view.RowTemplate.Height = 24;
@@ -174,6 +176,17 @@
             this.enrollment.MinimumWidth = 6;
             this.enrollment.Name = "enrollment";
             // 
+            // user_label
+            // 
+            this.user_label.AutoSize = true;
+            this.user_label.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_label.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.user_label.Location = new System.Drawing.Point(33, 66);
+            this.user_label.Name = "user_label";
+            this.user_label.Size = new System.Drawing.Size(153, 19);
+            this.user_label.TabIndex = 4;
+            this.user_label.Text = "Logged In: First Last";
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn room_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollment;
+        private System.Windows.Forms.Label user_label;
     }
 }
