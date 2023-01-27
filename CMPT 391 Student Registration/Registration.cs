@@ -69,8 +69,10 @@ namespace CMPT_391_Student_Registration
                 string[] term = term_label.Text.ToString().Split(' ');
 
 
-                myCommand.CommandText = "select * from Section where CourseID like '" + class_search_box.Text + 
-                    "%' and semester = '" + term[1] + "' and year = '" + term[0] + "'";
+                myCommand.CommandText = "select * from Section S, Time_slot T where " +
+                    "S.time_slot_id = T.time_slot_id and S.CourseID like '" + 
+                    class_search_box.Text + "%' and S.semester = '" + term[1] + 
+                    "' and S.year = '" + term[0] + "'";
 
                 try
                 {
@@ -79,9 +81,9 @@ namespace CMPT_391_Student_Registration
 
                     while (myReader.Read())
                     {
-                        class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["time_slot_id"].ToString(),
-                            myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["capacity"].ToString(),
-                            myReader["enrollment"].ToString());
+                        class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["building"].ToString(),
+                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(), 
+                            myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString());
                     }
                     myReader.Close();
                 }

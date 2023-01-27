@@ -38,8 +38,10 @@
             this.class_view = new System.Windows.Forms.DataGridView();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sec_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time_slot_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.building = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.day = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.end_time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +54,7 @@
             this.class_search_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.class_search_box.ForeColor = System.Drawing.SystemColors.GrayText;
             this.class_search_box.Location = new System.Drawing.Point(464, 279);
-            this.class_search_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.class_search_box.Margin = new System.Windows.Forms.Padding(4);
             this.class_search_box.Name = "class_search_box";
             this.class_search_box.Size = new System.Drawing.Size(851, 30);
             this.class_search_box.TabIndex = 0;
@@ -76,7 +78,7 @@
             this.class_search_btn.BackgroundImage = global::CMPT_391_Student_Registration.Properties.Resources.search1;
             this.class_search_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.class_search_btn.Location = new System.Drawing.Point(1324, 277);
-            this.class_search_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.class_search_btn.Margin = new System.Windows.Forms.Padding(4);
             this.class_search_btn.Name = "class_search_btn";
             this.class_search_btn.Size = new System.Drawing.Size(40, 37);
             this.class_search_btn.TabIndex = 1;
@@ -100,7 +102,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
             this.panel1.Location = new System.Drawing.Point(417, 204);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1013, 159);
             this.panel1.TabIndex = 4;
@@ -113,7 +115,7 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.panel2.Size = new System.Drawing.Size(1687, 138);
@@ -127,7 +129,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.button2.Location = new System.Drawing.Point(52, 76);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 36);
             this.button2.TabIndex = 4;
@@ -142,8 +144,10 @@
             this.class_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseID,
             this.sec_id,
-            this.time_slot_id,
             this.building,
+            this.day,
+            this.start_time,
+            this.end_time,
             this.room_number,
             this.capacity,
             this.enrollment});
@@ -166,17 +170,29 @@
             this.sec_id.MinimumWidth = 6;
             this.sec_id.Name = "sec_id";
             // 
-            // time_slot_id
-            // 
-            this.time_slot_id.HeaderText = "Time Slot";
-            this.time_slot_id.MinimumWidth = 6;
-            this.time_slot_id.Name = "time_slot_id";
-            // 
             // building
             // 
             this.building.HeaderText = "Building";
             this.building.MinimumWidth = 6;
             this.building.Name = "building";
+            // 
+            // day
+            // 
+            this.day.HeaderText = "Days";
+            this.day.MinimumWidth = 6;
+            this.day.Name = "day";
+            // 
+            // start_time
+            // 
+            this.start_time.HeaderText = "Start Time";
+            this.start_time.MinimumWidth = 6;
+            this.start_time.Name = "start_time";
+            // 
+            // end_time
+            // 
+            this.end_time.HeaderText = "End Time";
+            this.end_time.MinimumWidth = 6;
+            this.end_time.Name = "end_time";
             // 
             // room_number
             // 
@@ -208,7 +224,7 @@
             this.Controls.Add(this.class_search_box);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registration";
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Registration_Load);
@@ -232,8 +248,10 @@
         private System.Windows.Forms.DataGridView class_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn time_slot_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn building;
+        private System.Windows.Forms.DataGridViewTextBoxColumn day;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start_time;
+        private System.Windows.Forms.DataGridViewTextBoxColumn end_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn room_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollment;
