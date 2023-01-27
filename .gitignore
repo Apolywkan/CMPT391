@@ -396,3 +396,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/.vs/CMPT391StudentRegistration/v17/.suo
+/CMPT 391 Student Registration/bin/Debug/CMPT 391 Student Registration.exe
+/CMPT 391 Student Registration/bin/Debug/CMPT 391 Student Registration.pdb
+/CMPT 391 Student Registration/obj/Debug/CMPT 391 Student Registration.csproj.GenerateResource.cache
+/CMPT 391 Student Registration/obj/Debug/CMPT 391 Student Registration.exe
+/CMPT 391 Student Registration/obj/Debug/CMPT 391 Student Registration.pdb
