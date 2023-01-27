@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,15 +18,18 @@ namespace CMPT_391_Student_Registration
         public SqlConnection myConnection;
         public SqlCommand myCommand;
         public SqlDataReader myReader;
+        
+        //The logged in students Student ID (SID)
+        public int SID { get; set; }
         public Registration()
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
-            // Jasper: LAPTOP-JPNKMR
+            // Jasper: LAPTOP-JPNKMR DESKTOP-JSPRNKM
             // Salah: 
             // Brittney: LAPTOP-L6HCRV5P
 
@@ -58,6 +62,42 @@ namespace CMPT_391_Student_Registration
             string year = "2023";
             string term = "Winter";
             term_label.Text = year + " " + term + " Term";
+
+            myCommand.CommandText = "SELECT name from Student JOIN Logins ON Student.SID = Logins.SID WHERE Student.SID = " + SID;
+
+            string input = "";
+
+            try
+            {
+                myReader = myCommand.ExecuteReader();
+                class_view.Rows.Clear();
+
+                while (myReader.Read())
+                {
+                    input = myReader["name"].ToString();
+                }
+                myReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+
+            string output = "";
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (i > 0 && char.IsUpper(input[i]) && char.IsLower(input[i - 1]))
+                {
+                    output += " ";
+                }
+                if (!char.IsNumber(input[i]))
+                {
+                    output += input[i];
+                }
+            }
+
+            user_label.Text = "Logged In: " + output;
 
             this.AcceptButton = class_search_btn;
         }
