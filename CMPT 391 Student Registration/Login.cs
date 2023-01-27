@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CMPT_391_Student_Registration
@@ -16,25 +9,24 @@ namespace CMPT_391_Student_Registration
         public SqlConnection myConnection;
         public SqlCommand myCommand;
         public SqlDataReader myReader;
+
         public Login()
         {
             InitializeComponent();
+            this.AcceptButton = btn_login;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
-            // Jasper: 
+            // Jasper: LAPTOP-JPNKMR
             // Salah: 
-
-
-            /* Starting the connection */
-            /*  SqlConnection myConnection = new SqlConnection("user id=temp2;" + // Username
-                                         "password=adminadmin;" + // Password
-                                         "server=localhost;" + // IP for the server
-                                                               //"Trusted_Connection=yes;" +
-                                         "database=ConnectTutorial; " + // Database to connect to
-                                         "connection timeout=30"); // Timeout in seconds */
+            // Brittney: LAPTOP-L6HCRV5P
 
             SqlConnection myConnection = new SqlConnection(connectionString); // Timeout in seconds
 
@@ -44,33 +36,55 @@ namespace CMPT_391_Student_Registration
                 myCommand = new SqlCommand();
                 myCommand.Connection = myConnection; // Link the command stream to the connection
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.ToString(), "Error");
+                MessageBox.Show(ex.ToString(), "Error");
                 this.Close();
             }
-        }
+            ///////////////////////////////
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+            //Takes user input
             string username = username_input.Text;
             string password = password_input.Text;
 
-            if (username == "admin" && password == "password") //change later
-            {
-                Registration registrationForm = new Registration();
-                registrationForm.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.");
-            }
-        }
+            //Find a matching value
+            string queryString = "SELECT * FROM Logins WHERE username = @username AND password = @password";
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.AcceptButton = btn_login;
+            myCommand.CommandText = queryString;
+            myCommand.Parameters.AddWithValue("@username", username);
+            myCommand.Parameters.AddWithValue("@password", password);
+
+            //If successful then they can login
+            try
+            {
+                myReader = myCommand.ExecuteReader();
+                if (myReader.HasRows)
+                {
+                    while (myReader.Read())
+                    {
+                        Console.WriteLine("SID: " + myReader["SID"]);
+                        Console.WriteLine("username: " + myReader["username"]);
+                        Console.WriteLine("password: " + myReader["password"]);
+                        Registration registrationForm = new Registration();
+                        registrationForm.SID = (int)myReader["SID"];
+                        registrationForm.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Username or Password");
+                }
+            }
+            //If unsuccessful then they cannot login
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                myReader.Close();
+            }
         }
     }
 }

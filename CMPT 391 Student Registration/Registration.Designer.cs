@@ -34,7 +34,6 @@
             this.term_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.class_view = new System.Windows.Forms.DataGridView();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sec_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             this.room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.user_label = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.class_view)).BeginInit();
             this.SuspendLayout();
@@ -53,10 +53,9 @@
             // 
             this.class_search_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.class_search_box.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.class_search_box.Location = new System.Drawing.Point(464, 279);
-            this.class_search_box.Margin = new System.Windows.Forms.Padding(4);
+            this.class_search_box.Location = new System.Drawing.Point(348, 227);
             this.class_search_box.Name = "class_search_box";
-            this.class_search_box.Size = new System.Drawing.Size(851, 30);
+            this.class_search_box.Size = new System.Drawing.Size(639, 26);
             this.class_search_box.TabIndex = 0;
             this.class_search_box.Text = "Enter keyword e.g. course, subject, class";
             // 
@@ -66,10 +65,9 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(455, 218);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(341, 177);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(376, 46);
+            this.label1.Size = new System.Drawing.Size(305, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Search for Classes";
             // 
@@ -77,10 +75,9 @@
             // 
             this.class_search_btn.BackgroundImage = global::CMPT_391_Student_Registration.Properties.Resources.search1;
             this.class_search_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.class_search_btn.Location = new System.Drawing.Point(1324, 277);
-            this.class_search_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.class_search_btn.Location = new System.Drawing.Point(993, 225);
             this.class_search_btn.Name = "class_search_btn";
-            this.class_search_btn.Size = new System.Drawing.Size(40, 37);
+            this.class_search_btn.Size = new System.Drawing.Size(30, 30);
             this.class_search_btn.TabIndex = 1;
             this.class_search_btn.UseVisualStyleBackColor = true;
             this.class_search_btn.Click += new System.EventHandler(this.class_search_btn_Click);
@@ -91,50 +88,32 @@
             this.term_label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(131)))), ((int)(((byte)(129)))));
             this.term_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.term_label.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.term_label.Location = new System.Drawing.Point(43, 26);
-            this.term_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.term_label.Location = new System.Drawing.Point(30, 20);
             this.term_label.Name = "term_label";
-            this.term_label.Size = new System.Drawing.Size(318, 46);
+            this.term_label.Size = new System.Drawing.Size(257, 37);
             this.term_label.TabIndex = 3;
             this.term_label.Text = "Semester + Year";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
-            this.panel1.Location = new System.Drawing.Point(417, 204);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(313, 166);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1013, 159);
+            this.panel1.Size = new System.Drawing.Size(760, 129);
             this.panel1.TabIndex = 4;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(131)))), ((int)(((byte)(129)))));
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.user_label);
             this.panel2.Controls.Add(this.term_label);
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.ImeMode = System.Windows.Forms.ImeMode.On;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel2.Size = new System.Drawing.Size(1687, 138);
+            this.panel2.Size = new System.Drawing.Size(1265, 112);
             this.panel2.TabIndex = 5;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(52, 76);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 36);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Change";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // class_view
             // 
@@ -151,11 +130,12 @@
             this.room_number,
             this.capacity,
             this.enrollment});
-            this.class_view.Location = new System.Drawing.Point(417, 370);
+            this.class_view.Location = new System.Drawing.Point(313, 301);
+            this.class_view.Margin = new System.Windows.Forms.Padding(2);
             this.class_view.Name = "class_view";
             this.class_view.RowHeadersWidth = 51;
             this.class_view.RowTemplate.Height = 24;
-            this.class_view.Size = new System.Drawing.Size(1014, 443);
+            this.class_view.Size = new System.Drawing.Size(760, 360);
             this.class_view.TabIndex = 6;
             // 
             // CourseID
@@ -212,19 +192,29 @@
             this.enrollment.MinimumWidth = 6;
             this.enrollment.Name = "enrollment";
             // 
+            // user_label
+            // 
+            this.user_label.AutoSize = true;
+            this.user_label.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_label.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.user_label.Location = new System.Drawing.Point(33, 66);
+            this.user_label.Name = "user_label";
+            this.user_label.Size = new System.Drawing.Size(153, 19);
+            this.user_label.TabIndex = 4;
+            this.user_label.Text = "Logged In: First Last";
+            // 
             // Registration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.class_view);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.class_search_btn);
             this.Controls.Add(this.class_search_box);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registration";
             this.Text = "Registration";
             this.Load += new System.EventHandler(this.Registration_Load);
@@ -244,7 +234,6 @@
         private System.Windows.Forms.Label term_label;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView class_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn sec_id;
@@ -255,5 +244,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn room_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacity;
         private System.Windows.Forms.DataGridViewTextBoxColumn enrollment;
+        private System.Windows.Forms.Label user_label;
     }
 }
