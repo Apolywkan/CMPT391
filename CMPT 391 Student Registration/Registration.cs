@@ -25,7 +25,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
@@ -102,6 +102,34 @@ namespace CMPT_391_Student_Registration
             this.AcceptButton = class_search_btn;
         }
 
+        private void register_button_Click(object sender, EventArgs e)
+        {
+            //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
+            DataGridView dtg = class_view;
+
+            //get how many classes are selected by the user
+            int number_selected = class_view.GetCellCount(DataGridViewElementStates.Selected);
+
+            if (number_selected == 1) //if only one class is selected
+            {
+                //get currently selected class from data grid
+                String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
+                MessageBox.Show(class_selection);
+                //do class registration stuff here, selected class is stored in class_selection
+
+
+
+            }
+            else if (number_selected == 0) //if no classes are selected
+            {
+                MessageBox.Show("No classes selected.");
+            }
+            else //if too many classes are selected
+            {
+                MessageBox.Show("Select only one class.");
+            }
+        }
+
         private void class_search_btn_Click(object sender, EventArgs e)
         {
             //if there is anything in the search box
@@ -123,7 +151,7 @@ namespace CMPT_391_Student_Registration
                     {
                         //add results to the data grid view
                         class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["building"].ToString(),
-                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(), 
+                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
                             myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString());
                     }
                     myReader.Close();
@@ -132,32 +160,6 @@ namespace CMPT_391_Student_Registration
                 {
                     MessageBox.Show(ex.ToString(), "Error");
                 }
-            }
-        }
-
-        private void register_button_Click(object sender, EventArgs e)
-        {
-            //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
-            DataGridView dtg = class_view;
-
-            //get how many classes are selected by the user
-            int number_selected = class_view.GetCellCount(DataGridViewElementStates.Selected);
-
-            if ( number_selected == 1) //if only one class is selected
-            {
-                //get currently selected class from data grid
-                String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
-                MessageBox.Show(class_selection);
-                //do class registration stuff here, selected class is stored in class_selection
-
-
-
-            } else if (number_selected == 0) //if no classes are selected
-            {
-                MessageBox.Show("No classes selected.");
-            } else //if too many classes are selected
-            {
-                MessageBox.Show("Select only one class.");
             }
         }
     }
