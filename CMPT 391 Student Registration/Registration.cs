@@ -109,11 +109,7 @@ namespace CMPT_391_Student_Registration
                 //Gets term from the top left text box, term[0] will be year, term[1] will be semester
                 string[] term = term_label.Text.ToString().Split(' ');
 
-
-                myCommand.CommandText = "select * from Section S, Time_slot T where " +
-                    "S.time_slot_id = T.time_slot_id and S.CourseID like '" + 
-                    class_search_box.Text + "%' and S.semester = '" + term[1] + 
-                    "' and S.year = '" + term[0] + "'";
+                myCommand.CommandText = "exec ClassSearch @CourseID = '" + class_search_box.Text + "%', @year = " + term[0] + ", @semester = '" + term[1] + "'";
 
                 try
                 {
@@ -140,9 +136,20 @@ namespace CMPT_391_Student_Registration
             //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
             DataGridView dtg = class_view;
 
-            String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
+            int number_selected = class_view.GetCellCount(DataGridViewElementStates.Selected);
 
-            MessageBox.Show(class_selection);
+            if ( number_selected == 1)
+            {
+                String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
+
+                MessageBox.Show(class_selection);
+            } else if (number_selected == 0)
+            {
+                MessageBox.Show("No classes selected.");
+            } else
+            {
+                MessageBox.Show("Select only one class.");
+            }
         }
     }
 
