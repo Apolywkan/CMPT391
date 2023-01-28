@@ -104,20 +104,24 @@ namespace CMPT_391_Student_Registration
 
         private void class_search_btn_Click(object sender, EventArgs e)
         {
+            //if there is anything in the search box
             if (class_search_box.Text.Length > 0)
             {
                 //Gets term from the top left text box, term[0] will be year, term[1] will be semester
                 string[] term = term_label.Text.ToString().Split(' ');
 
+                //sql command using stored procedure
                 myCommand.CommandText = "exec ClassSearch @CourseID = '" + class_search_box.Text + "%', @year = " + term[0] + ", @semester = '" + term[1] + "'";
 
                 try
                 {
+                    //execute command
                     myReader = myCommand.ExecuteReader();
                     class_view.Rows.Clear();
 
                     while (myReader.Read())
                     {
+                        //add results to the data grid view
                         class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["building"].ToString(),
                             myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(), 
                             myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString());
@@ -136,17 +140,22 @@ namespace CMPT_391_Student_Registration
             //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
             DataGridView dtg = class_view;
 
+            //get how many classes are selected by the user
             int number_selected = class_view.GetCellCount(DataGridViewElementStates.Selected);
 
-            if ( number_selected == 1)
+            if ( number_selected == 1) //if only one class is selected
             {
+                //get currently selected class from data grid
                 String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
-
                 MessageBox.Show(class_selection);
-            } else if (number_selected == 0)
+                //do class registration stuff here, selected class is stored in class_selection
+
+
+
+            } else if (number_selected == 0) //if no classes are selected
             {
                 MessageBox.Show("No classes selected.");
-            } else
+            } else //if too many classes are selected
             {
                 MessageBox.Show("Select only one class.");
             }
