@@ -25,7 +25,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: 
             // Zach: LAPTOP-HUT8634L
@@ -102,28 +102,56 @@ namespace CMPT_391_Student_Registration
             this.AcceptButton = class_search_btn;
         }
 
+        private void register_button_Click(object sender, EventArgs e)
+        {
+            //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
+            DataGridView dtg = class_view;
+
+            //get how many classes are selected by the user
+            int number_selected = class_view.GetCellCount(DataGridViewElementStates.Selected);
+
+            if (number_selected == 1) //if only one class is selected
+            {
+                //get currently selected class from data grid
+                String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
+                MessageBox.Show(class_selection);
+                //do class registration stuff here, selected class is stored in class_selection
+
+
+
+            }
+            else if (number_selected == 0) //if no classes are selected
+            {
+                MessageBox.Show("No classes selected.");
+            }
+            else //if too many classes are selected
+            {
+                MessageBox.Show("Select only one class.");
+            }
+        }
+
         private void class_search_btn_Click(object sender, EventArgs e)
         {
+            //if there is anything in the search box
             if (class_search_box.Text.Length > 0)
             {
                 //Gets term from the top left text box, term[0] will be year, term[1] will be semester
                 string[] term = term_label.Text.ToString().Split(' ');
 
-
-                myCommand.CommandText = "select * from Section S, Time_slot T where " +
-                    "S.time_slot_id = T.time_slot_id and S.CourseID like '" + 
-                    class_search_box.Text + "%' and S.semester = '" + term[1] + 
-                    "' and S.year = '" + term[0] + "'";
+                //sql command using stored procedure
+                myCommand.CommandText = "exec ClassSearch @CourseID = '" + class_search_box.Text + "%', @year = " + term[0] + ", @semester = '" + term[1] + "'";
 
                 try
                 {
+                    //execute command
                     myReader = myCommand.ExecuteReader();
                     class_view.Rows.Clear();
 
                     while (myReader.Read())
                     {
+                        //add results to the data grid view
                         class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["building"].ToString(),
-                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(), 
+                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
                             myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString());
                     }
                     myReader.Close();
@@ -133,16 +161,6 @@ namespace CMPT_391_Student_Registration
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             }
-        }
-
-        private void register_button_Click(object sender, EventArgs e)
-        {
-            //REF: https://www.youtube.com/watch?v=39OWGCTpaTk
-            DataGridView dtg = class_view;
-
-            String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
-
-            MessageBox.Show(class_selection);
         }
     }
 
