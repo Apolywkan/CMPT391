@@ -20,9 +20,9 @@ namespace CMPT_391_Student_Registration
         private void button1_Click(object sender, EventArgs e)
         {
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-SO5MCT3; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
-            // Adam: 
+            // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
             // Jasper: LAPTOP-JPNKMR
             // Salah: 
