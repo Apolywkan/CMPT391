@@ -2,10 +2,9 @@
 -- else, it returns -1
 
 USE [391database];
-EXECUTE sp_rename 'CheckPreReq', 'sp_CheckPreReq'
 
 GO
-CREATE PROCEDURE CheckPreReq 
+ALTER PROCEDURE sp_CheckPreReq 
     @SID INT, 
     @CourseID INT
 AS
@@ -15,7 +14,6 @@ AS
 		   --COUNT on how many Courses @CourseID depends
 		   --COUNT on how many Courses the Student has taken
 		   ,@countTakenCourses AS INT
-		   ,@theCount AS INT 
 
 	SET @necessaryCourses = (SELECT count(*) FROM Prereq WHERE CourseID = @CourseID);
 
@@ -30,13 +28,12 @@ AS
 
 	IF @necessaryCourses = @countTakenCourses  
 	BEGIN
-		set @theCount = 1
+		RETURN 1
 	END
 	ELSE 
 	BEGIN 
-		set @theCount =  -1
+		RETURN -1
 	END
 
-	SELECT @theCount AS theCount
-
-EXECUTE CheckPreReq @SID=1, @CourseID=3;
+DECLARE @preReqCount AS INT
+EXECUTE @preReqCount = sp_CheckPreReq @SID=1, @CourseID=3;
