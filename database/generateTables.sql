@@ -46,7 +46,7 @@ capacity int)
 
 CREATE TABLE Takes (
 SID int,
-CourseID int,
+CourseID varchar(10),
 sec_id int,
 semester varchar(30),
 year int,
