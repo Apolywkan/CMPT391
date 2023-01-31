@@ -46,3 +46,15 @@ C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\
 C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
 C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
 C:\Users\jaspe\Documents\School\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe.config
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.exe
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\bin\Debug\CMPT 391 Student Registration.pdb
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.AssemblyReference.cache
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.SuggestedBindingRedirects.cache
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Login.resources
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Properties.Resources.resources
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT_391_Student_Registration.Registration.resources
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.GenerateResource.cache
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.csproj.CoreCompileInputs.cache
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.exe
+C:\Users\Adam\Downloads\school-files\winter2023\CMPT391\Project1\CMPT391\CMPT 391 Student Registration\obj\Debug\CMPT 391 Student Registration.pdb
