@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.term_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.user_label = new System.Windows.Forms.Label();
@@ -44,13 +48,23 @@
             this.room_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.enrollment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.class_search_btn = new System.Windows.Forms.Button();
             this.class_search_box = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.view_tab = new System.Windows.Forms.TabPage();
-            this.remove_btn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.remove_btn = new System.Windows.Forms.Button();
+            this.CourseID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.day2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_time2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endtime2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.building2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.room_number2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sec_id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semester2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grades2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.register_tab.SuspendLayout();
@@ -100,7 +114,7 @@
             // 
             this.tabControl1.Controls.Add(this.register_tab);
             this.tabControl1.Controls.Add(this.view_tab);
-            this.tabControl1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 89);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -141,6 +155,14 @@
             this.class_view.AllowUserToResizeRows = false;
             this.class_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.class_view.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.class_view.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.class_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.class_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseID,
@@ -152,6 +174,14 @@
             this.room_number,
             this.capacity,
             this.enrollment});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.class_view.DefaultCellStyle = dataGridViewCellStyle2;
             this.class_view.EnableHeadersVisualStyles = false;
             this.class_view.Location = new System.Drawing.Point(244, 169);
             this.class_view.Margin = new System.Windows.Forms.Padding(2);
@@ -225,17 +255,16 @@
             this.enrollment.Name = "enrollment";
             this.enrollment.ReadOnly = true;
             // 
-            // label1
+            // panel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(28, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(305, 37);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Search for Classes";
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.class_search_btn);
+            this.panel1.Controls.Add(this.class_search_box);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(244, 35);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(760, 129);
+            this.panel1.TabIndex = 11;
             // 
             // class_search_btn
             // 
@@ -258,16 +287,17 @@
             this.class_search_box.TabIndex = 8;
             this.class_search_box.Text = "Enter keyword e.g. course, subject, class";
             // 
-            // panel1
+            // label1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.class_search_btn);
-            this.panel1.Controls.Add(this.class_search_box);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(244, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 129);
-            this.panel1.TabIndex = 11;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(28, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(305, 37);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Search for Classes";
             // 
             // view_tab
             // 
@@ -281,24 +311,114 @@
             this.view_tab.TabIndex = 1;
             this.view_tab.Text = "View Classes";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseID2,
+            this.day2,
+            this.start_time2,
+            this.endtime2,
+            this.building2,
+            this.room_number2,
+            this.sec_id2,
+            this.semester2,
+            this.year2,
+            this.grades2});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.Location = new System.Drawing.Point(174, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(901, 395);
+            this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // remove_btn
             // 
-            this.remove_btn.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remove_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remove_btn.Location = new System.Drawing.Point(547, 461);
             this.remove_btn.Name = "remove_btn";
             this.remove_btn.Size = new System.Drawing.Size(146, 44);
             this.remove_btn.TabIndex = 0;
             this.remove_btn.Text = "Remove Class";
             this.remove_btn.UseVisualStyleBackColor = true;
+            this.remove_btn.Click += new System.EventHandler(this.remove_btn_Click);
             // 
-            // dataGridView1
+            // CourseID2
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(174, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(901, 395);
-            this.dataGridView1.TabIndex = 1;
+            this.CourseID2.HeaderText = "Course";
+            this.CourseID2.Name = "CourseID2";
+            this.CourseID2.ReadOnly = true;
+            // 
+            // day2
+            // 
+            this.day2.HeaderText = "Day";
+            this.day2.Name = "day2";
+            this.day2.ReadOnly = true;
+            // 
+            // start_time2
+            // 
+            this.start_time2.HeaderText = "Start time";
+            this.start_time2.Name = "start_time2";
+            this.start_time2.ReadOnly = true;
+            // 
+            // endtime2
+            // 
+            this.endtime2.HeaderText = "End Time";
+            this.endtime2.Name = "endtime2";
+            this.endtime2.ReadOnly = true;
+            // 
+            // building2
+            // 
+            this.building2.HeaderText = "Building";
+            this.building2.Name = "building2";
+            this.building2.ReadOnly = true;
+            // 
+            // room_number2
+            // 
+            this.room_number2.HeaderText = "Room number";
+            this.room_number2.Name = "room_number2";
+            this.room_number2.ReadOnly = true;
+            // 
+            // sec_id2
+            // 
+            this.sec_id2.HeaderText = "Section";
+            this.sec_id2.Name = "sec_id2";
+            this.sec_id2.ReadOnly = true;
+            // 
+            // semester2
+            // 
+            this.semester2.HeaderText = "Semester";
+            this.semester2.Name = "semester2";
+            this.semester2.ReadOnly = true;
+            // 
+            // year2
+            // 
+            this.year2.HeaderText = "Year";
+            this.year2.Name = "year2";
+            this.year2.ReadOnly = true;
+            // 
+            // grades2
+            // 
+            this.grades2.HeaderText = "Grades";
+            this.grades2.Name = "grades2";
+            this.grades2.ReadOnly = true;
             // 
             // Registration
             // 
@@ -348,5 +468,15 @@
         private System.Windows.Forms.TabPage view_tab;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button remove_btn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseID2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn day2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn start_time2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endtime2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn building2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn room_number2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sec_id2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn semester2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn year2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grades2;
     }
 }

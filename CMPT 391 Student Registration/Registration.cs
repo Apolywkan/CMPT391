@@ -25,9 +25,9 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-SO5MCT3; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
-            // Adam: 
+            // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
             // Jasper: LAPTOP-JPNKMR DESKTOP-JSPRNKM
             // Salah: 
@@ -100,6 +100,32 @@ namespace CMPT_391_Student_Registration
             user_label.Text = "Logged In: " + output;
 
             this.AcceptButton = class_search_btn;
+
+
+            // View classes tab
+            //sql command using stored procedure
+            myCommand.CommandText = "SELECT S.*, T.grades, TS.day, TS.start_time, TS.endtime from Takes as T, Section as S, Time_slot as TS where T.sec_id = S.sec_id and S.time_slot_id = TS.time_slot_id and SID = " + SID;
+
+            try
+            {
+                //execute command
+                myReader = myCommand.ExecuteReader();
+                dataGridView1.Rows.Clear();
+
+                while (myReader.Read())
+                {
+                    //add results to the data grid view
+                    dataGridView1.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
+                        myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
+                        myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["semester"].ToString(),
+                        myReader["year"].ToString(), myReader["grades"].ToString());
+                }
+                myReader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void register_button_Click(object sender, EventArgs e)
@@ -161,6 +187,16 @@ namespace CMPT_391_Student_Registration
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             }
+        }
+
+        private void remove_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
