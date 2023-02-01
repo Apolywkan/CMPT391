@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -58,7 +58,7 @@ namespace CMPT_391_Student_Registration
             }
         }
 
-        private void Registration_Load(object sender, EventArgs e)
+        private void update_registered()
         {
             string year = "2023";
             string term = "Winter";
@@ -128,13 +128,18 @@ namespace CMPT_391_Student_Registration
             }
         }
 
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            update_registered();
+        }
+
         private void class_search_btn_Click(object sender, EventArgs e)
         {
             //if there is anything in the search box
             if (class_search_box.Text.Length > 0)
             {
                 //Gets term from the top left text box, term[0] will be year, term[1] will be semester
-                string[] term = term_label.Text.ToString().Split(' ');
+                String[] term = term_label.Text.ToString().Split(' ');
                 myCommand.CommandType = CommandType.Text;
                 //remove spaces from user input
                 string strippedInput = class_search_box.Text.Replace(" ", string.Empty);
@@ -151,9 +156,9 @@ namespace CMPT_391_Student_Registration
                     {
                         //add results to the data grid view
                         class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(), myReader["building"].ToString(),
-                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(), myReader["semester"].ToString(),
-                        myReader["year"].ToString(),
-                            myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString());
+                            myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
+                            myReader["room_number"].ToString(), myReader["capacity"].ToString(), myReader["enrollment"].ToString(),
+                            myReader["semester"].ToString(), myReader["year"].ToString());
                     }
                     myReader.Close();
                 }
@@ -162,6 +167,7 @@ namespace CMPT_391_Student_Registration
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             }
+            update_registered();
         }
 
         private void register_button_Click(object sender, EventArgs e)
@@ -174,11 +180,15 @@ namespace CMPT_391_Student_Registration
 
             if (number_selected == 1) //if only one class is selected
             {
+                //get current term
+                
                 //get currently selected class from data grid
                 String class_selection = dtg.CurrentRow.Cells[0].Value.ToString();
                 String class_section = dtg.CurrentRow.Cells[1].Value.ToString();
-                String year = dtg.CurrentRow.Cells[7].Value.ToString();
-                String semester = dtg.CurrentRow.Cells[6].Value.ToString();
+                String year = dtg.CurrentRow.Cells[10].Value.ToString();
+                String semester = dtg.CurrentRow.Cells[9].Value.ToString();
+
+                MessageBox.Show(" " + class_selection + class_section + year + semester);
 
                 String message = "Are you sure you want to enroll in " + class_selection;
                 const string caption = "Confirm selection";
@@ -234,6 +244,8 @@ namespace CMPT_391_Student_Registration
                         {
                             MessageBox.Show(successMessage);
                             // return;
+                            class_search_btn.PerformClick();
+                            
                         }
                         else
                         {
