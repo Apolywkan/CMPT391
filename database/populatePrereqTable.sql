@@ -1,18 +1,17 @@
---Populate Prereq table---------------------------------------------------
-ALTER TABLE Prereq
-ALTER COLUMN CourseID varchar(30)
-ALTER TABLE Prereq
-ALTER COLUMN preCourseID varchar(30)
+--Populate Prereq table--------------------------------------------------
+
+delete from Prereq where CourseID != ''
+
 
 INSERT INTO Prereq VALUES 
-('BUSN475', 'BUSN100'),
-('BUSN475', 'BUSN265'),
-('BUSN475', 'BUSN335'),
-('CMPT410','CMPT340'),
-('CMPT410','CMPT100'),
-('CMPT410','CMPT245'),
+('BUSN340', 'BUSN100'),
+('BUSN340', 'BUSN160'),
+('BUSN340', 'BUSN280'),
+('CMPT310','CMPT130'),
+('CMPT310','CMPT100'),
+('CMPT310','CMPT250'),
 ('CMPT340','CMPT100'),
-('CMPT245','CMPT100'),
-('MATH500','MATH445'),
-('MATH500','MATH425'),
-('MATH500','MATH410')
+('CMPT250','CMPT100'),
+('MATH340','MATH310'),
+('MATH340','MATH280'),
+('MATH340','MATH100')

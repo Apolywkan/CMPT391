@@ -54,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.view_tab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.remove_btn = new System.Windows.Forms.Button();
             this.CourseID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.day2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_time2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +64,7 @@
             this.semester2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.year2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grades2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remove_btn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.register_tab.SuspendLayout();
@@ -183,14 +183,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.class_view.DefaultCellStyle = dataGridViewCellStyle2;
             this.class_view.EnableHeadersVisualStyles = false;
-            this.class_view.Location = new System.Drawing.Point(244, 169);
+            this.class_view.Location = new System.Drawing.Point(142, 169);
             this.class_view.Margin = new System.Windows.Forms.Padding(2);
             this.class_view.Name = "class_view";
             this.class_view.ReadOnly = true;
             this.class_view.RowHeadersWidth = 51;
             this.class_view.RowTemplate.Height = 24;
-            this.class_view.Size = new System.Drawing.Size(760, 294);
+            this.class_view.Size = new System.Drawing.Size(928, 294);
             this.class_view.TabIndex = 12;
+            this.class_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.class_view_CellContentClick);
             // 
             // CourseID
             // 
@@ -261,9 +262,9 @@
             this.panel1.Controls.Add(this.class_search_btn);
             this.panel1.Controls.Add(this.class_search_box);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(244, 35);
+            this.panel1.Location = new System.Drawing.Point(142, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 129);
+            this.panel1.Size = new System.Drawing.Size(928, 129);
             this.panel1.TabIndex = 11;
             // 
             // class_search_btn
@@ -349,17 +350,6 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // remove_btn
-            // 
-            this.remove_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.remove_btn.Location = new System.Drawing.Point(547, 461);
-            this.remove_btn.Name = "remove_btn";
-            this.remove_btn.Size = new System.Drawing.Size(146, 44);
-            this.remove_btn.TabIndex = 0;
-            this.remove_btn.Text = "Remove Class";
-            this.remove_btn.UseVisualStyleBackColor = true;
-            this.remove_btn.Click += new System.EventHandler(this.remove_btn_Click);
-            // 
             // CourseID2
             // 
             this.CourseID2.HeaderText = "Course";
@@ -419,6 +409,17 @@
             this.grades2.HeaderText = "Grades";
             this.grades2.Name = "grades2";
             this.grades2.ReadOnly = true;
+            // 
+            // remove_btn
+            // 
+            this.remove_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remove_btn.Location = new System.Drawing.Point(547, 461);
+            this.remove_btn.Name = "remove_btn";
+            this.remove_btn.Size = new System.Drawing.Size(146, 44);
+            this.remove_btn.TabIndex = 0;
+            this.remove_btn.Text = "Remove Class";
+            this.remove_btn.UseVisualStyleBackColor = true;
+            this.remove_btn.Click += new System.EventHandler(this.remove_btn_Click);
             // 
             // Registration
             // 
