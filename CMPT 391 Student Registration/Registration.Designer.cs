@@ -53,7 +53,7 @@
             this.class_search_box = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.view_tab = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.user_class_view = new System.Windows.Forms.DataGridView();
             this.CourseID2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.day2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_time2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.class_view)).BeginInit();
             this.panel1.SuspendLayout();
             this.view_tab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_class_view)).BeginInit();
             this.SuspendLayout();
             // 
             // term_label
@@ -191,7 +191,6 @@
             this.class_view.RowTemplate.Height = 24;
             this.class_view.Size = new System.Drawing.Size(928, 294);
             this.class_view.TabIndex = 12;
-            this.class_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.class_view_CellContentClick);
             // 
             // CourseID
             // 
@@ -287,6 +286,8 @@
             this.class_search_box.Size = new System.Drawing.Size(639, 26);
             this.class_search_box.TabIndex = 8;
             this.class_search_box.Text = "Enter keyword e.g. course, subject, class";
+            this.class_search_box.Click += new System.EventHandler(this.class_search_box_Click);
+            this.class_search_box.Leave += new System.EventHandler(this.class_search_box_Leave);
             // 
             // label1
             // 
@@ -303,7 +304,7 @@
             // view_tab
             // 
             this.view_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(131)))), ((int)(((byte)(129)))));
-            this.view_tab.Controls.Add(this.dataGridView1);
+            this.view_tab.Controls.Add(this.user_class_view);
             this.view_tab.Controls.Add(this.remove_btn);
             this.view_tab.Location = new System.Drawing.Point(4, 22);
             this.view_tab.Name = "view_tab";
@@ -312,10 +313,10 @@
             this.view_tab.TabIndex = 1;
             this.view_tab.Text = "View Classes";
             // 
-            // dataGridView1
+            // user_class_view
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
+            this.user_class_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.user_class_view.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(143)))), ((int)(((byte)(140)))));
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -323,9 +324,9 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.user_class_view.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.user_class_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.user_class_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseID2,
             this.day2,
             this.start_time2,
@@ -343,12 +344,11 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(174, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(901, 395);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.user_class_view.DefaultCellStyle = dataGridViewCellStyle4;
+            this.user_class_view.Location = new System.Drawing.Point(174, 38);
+            this.user_class_view.Name = "user_class_view";
+            this.user_class_view.Size = new System.Drawing.Size(901, 395);
+            this.user_class_view.TabIndex = 1;
             // 
             // CourseID2
             // 
@@ -440,7 +440,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.view_tab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.user_class_view)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -467,7 +467,7 @@
         private System.Windows.Forms.TextBox class_search_box;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage view_tab;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView user_class_view;
         private System.Windows.Forms.Button remove_btn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseID2;
         private System.Windows.Forms.DataGridViewTextBoxColumn day2;
