@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-L6HCRV5P; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -300,6 +300,8 @@ namespace CMPT_391_Student_Registration
                     try
                     {
                         myCommand.CommandText = "DELETE FROM Takes WHERE SID = " + SID + "and CourseID = '" + course_id + "'";
+                        myCommand.ExecuteNonQuery();
+                        myCommand.CommandText = "UPDATE Section SET Section.enrollment = enrollment - 1 WHERE Section.CourseID = '" + course_id + "'; ";
                         myCommand.ExecuteNonQuery();
                         update_takes();
                     }
