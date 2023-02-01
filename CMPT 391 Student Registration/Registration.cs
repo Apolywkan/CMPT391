@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -60,10 +60,15 @@ namespace CMPT_391_Student_Registration
 
         private void Registration_Load(object sender, EventArgs e)
         {
+            update_takes();
+        }
+
+        private void update_takes()
+        {
             string year = "2023";
             string term = "Winter";
             term_label.Text = year + " " + term + " Term";
-
+            myCommand.CommandType = CommandType.Text;
             myCommand.CommandText = "SELECT name from Student JOIN Logins ON Student.SID = Logins.SID WHERE Student.SID = " + SID;
 
             string input = "";
@@ -233,11 +238,14 @@ namespace CMPT_391_Student_Registration
                         {
                             MessageBox.Show(successMessage);
                             // return;
+                            update_takes();
+                            class_search_btn.PerformClick();
                         }
                         else
                         {
                             MessageBox.Show(failMessage);
                         }
+                        myCommand.CommandType = CommandType.Text;
 
                     }
                     catch (Exception ex)
@@ -293,6 +301,7 @@ namespace CMPT_391_Student_Registration
                     {
                         myCommand.CommandText = "DELETE FROM Takes WHERE SID = " + SID + "and CourseID = '" + course_id + "'";
                         myCommand.ExecuteNonQuery();
+                        update_takes();
                     }
                     catch (Exception ex)
                     {
