@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CMPT_391_Student_Registration
 {
@@ -25,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-L6HCRV5P; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -101,7 +102,6 @@ namespace CMPT_391_Student_Registration
 
             this.AcceptButton = class_search_btn;
 
-
             // View classes tab
             //sql command using stored procedure
             myCommand.CommandText = "SELECT S.*, T.grades, TS.day, TS.start_time, TS.endtime from Takes as T, Section as S, Time_slot as TS where T.sec_id = S.sec_id and S.time_slot_id = TS.time_slot_id and SID = " + SID;
@@ -128,9 +128,6 @@ namespace CMPT_391_Student_Registration
             }
         }
 
-
-
-
         private void class_search_btn_Click(object sender, EventArgs e)
         {
             //if there is anything in the search box
@@ -139,8 +136,10 @@ namespace CMPT_391_Student_Registration
                 //Gets term from the top left text box, term[0] will be year, term[1] will be semester
                 string[] term = term_label.Text.ToString().Split(' ');
                 myCommand.CommandType = CommandType.Text;
+                //remove spaces from user input
+                string strippedInput = class_search_box.Text.Replace(" ", string.Empty);
                 //sql command using stored procedure
-                myCommand.CommandText = "exec ClassSearch @CourseID = '" + class_search_box.Text + "%', @year = " + term[0] + ", @semester = '" + term[1] + "'";
+                myCommand.CommandText = "exec ClassSearch @CourseID = '" + strippedInput + "%', @year = " + term[0] + ", @semester = '" + term[1] + "'";
 
                 try
                 {
@@ -164,17 +163,6 @@ namespace CMPT_391_Student_Registration
                 }
             }
         }
-
-        private void remove_btn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
 
         private void register_button_Click(object sender, EventArgs e)
         {
@@ -245,8 +233,7 @@ namespace CMPT_391_Student_Registration
                         if (regSuccess == 1)
                         {
                             MessageBox.Show(successMessage);
-                            
-                          // return;
+                            // return;
                         }
                         else
                         {
@@ -258,8 +245,6 @@ namespace CMPT_391_Student_Registration
                     {
                         MessageBox.Show(ex.ToString(), "Error");
                     }
-
-
                 }
             }
             else if (number_selected == 0) //if no classes are selected
@@ -274,10 +259,21 @@ namespace CMPT_391_Student_Registration
             }
         }
 
-        private void class_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void class_search_box_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(class_search_box.Text))
+            {
+                class_search_box.Text = "";
+            }
+        }
 
+        private void class_search_box_Leave(object sender, EventArgs e)
+        {
+            if (class_search_box.Text == "")
+            {
+                class_search_box.Text = "Enter keyword e.g. course, subject, class";
+            }
         }
     }
-  }
+}
 
