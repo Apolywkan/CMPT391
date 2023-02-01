@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -110,12 +110,12 @@ namespace CMPT_391_Student_Registration
             {
                 //execute command
                 myReader = myCommand.ExecuteReader();
-                dataGridView1.Rows.Clear();
+                user_class_view.Rows.Clear();
 
                 while (myReader.Read())
                 {
                     //add results to the data grid view
-                    dataGridView1.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
+                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
                         myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
                         myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["semester"].ToString(),
                         myReader["year"].ToString(), myReader["grades"].ToString());
@@ -191,7 +191,6 @@ namespace CMPT_391_Student_Registration
                 if (result == DialogResult.Yes)
                 {
                     //sql command using Transaction stored proc.
-
                     try
                     {
                         myCommand.CommandText = "spRegisterClass";
@@ -272,6 +271,35 @@ namespace CMPT_391_Student_Registration
             if (class_search_box.Text == "")
             {
                 class_search_box.Text = "Enter keyword e.g. course, subject, class";
+            }
+        }
+
+        private void remove_btn_Click(object sender, EventArgs e)
+        {
+            DataGridView test = user_class_view;
+
+            int number_selected = user_class_view.GetCellCount(DataGridViewElementStates.Selected);
+
+            if (number_selected == 1) //if only one class is selected
+            {
+                //get currently selected class from data grid
+                String course_id = test.CurrentRow.Cells[0].Value.ToString();
+
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this row?", "Confirm", MessageBoxButtons.YesNo);
+
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        myCommand.CommandText = "DELETE FROM Takes WHERE SID = " + SID + "and CourseID = '" + course_id + "'";
+                        myCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString(), "Error");
+                    }
+                }
+
             }
         }
     }
