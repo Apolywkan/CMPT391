@@ -60,8 +60,8 @@ semester varchar(15),
 year int)
 
 CREATE TABLE Prereq (
-CourseID int,
-preCourseID int)
+CourseID varchar(30),
+preCourseID varchar(30))
 
 CREATE TABLE Logins (
 SID int,
