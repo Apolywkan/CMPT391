@@ -4,7 +4,7 @@
 USE [391database];
 
 GO
-ALTER PROCEDURE sp_CheckPreReq 
+CREATE PROCEDURE sp_CheckPreReq 
     @SID INT, 
     @CourseID INT
 AS
