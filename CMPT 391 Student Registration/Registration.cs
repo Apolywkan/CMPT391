@@ -121,9 +121,9 @@ namespace CMPT_391_Student_Registration
                 while (myReader.Read())
                 {
                     //add results to the data grid view
-                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
-                        myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
-                        myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["semester"].ToString(),
+                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["day"].ToString(),
+                        myReader["start_time"].ToString(), myReader["endtime"].ToString(), myReader["building"].ToString(),
+                        myReader["room_number"].ToString(), myReader["sec_id"].ToString(), myReader["semester"].ToString(),
                         myReader["year"].ToString(), myReader["grades"].ToString());
                 }
                 myReader.Close();
