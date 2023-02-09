@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = DESKTOP-SO5MCT3; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = LAPTOP-HUT8634L; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -109,8 +109,8 @@ namespace CMPT_391_Student_Registration
 
             // View classes tab
             //sql command using stored procedure
-            //myCommand.CommandText = "SELECT S.*, T.grades, TS.day, TS.start_time, TS.endtime from Takes as T, Section as S, Time_slot as TS where T.sec_id = S.sec_id and S.time_slot_id = TS.time_slot_id and SID = " + SID;
-            myCommand.CommandText = "SELECT * from vWFullCourses where SID = " + SID;
+            myCommand.CommandText = "SELECT S.*, T.grades, TS.day, TS.start_time, TS.endtime from Takes as T, Section as S, Time_slot as TS where T.sec_id = S.sec_id and S.time_slot_id = TS.time_slot_id and SID = " + SID;
+            //myCommand.CommandText = "SELECT * from vWFullCourses where SID = " + SID;
 
             try
             {
@@ -121,9 +121,9 @@ namespace CMPT_391_Student_Registration
                 while (myReader.Read())
                 {
                     //add results to the data grid view
-                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
-                        myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
-                        myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["semester"].ToString(),
+                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["day"].ToString(),
+                        myReader["start_time"].ToString(), myReader["endtime"].ToString(), myReader["building"].ToString(),
+                        myReader["room_number"].ToString(), myReader["sec_id"].ToString(), myReader["semester"].ToString(),
                         myReader["year"].ToString(), myReader["grades"].ToString());
                 }
                 myReader.Close();
