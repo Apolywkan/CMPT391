@@ -235,12 +235,36 @@ namespace CMPT_391_Student_Registration
 
                         regSuccess = (int)retval.Value;
 
+                        /* regSuccess values:
+                            1 = success
+                            2 = doesnt fit schedule
+                            3 = enrollment >= capacity
+                            4 = prereq not met
+                            5 = already enrolled
+                        */
+
                         if (regSuccess == 1)
                         {
                             MessageBox.Show(successMessage);
                             // return;
                             update_takes();
                             class_search_btn.PerformClick();
+                        }
+                        else if (regSuccess == 2)
+                        {
+                            MessageBox.Show("Cannot enrol. Already enrolled in chosen class.");
+                        }
+                        else if (regSuccess == 3)
+                        {
+                            MessageBox.Show("Cannot enrol. Chosen class is full.");
+                        }
+                        else if (regSuccess == 4)
+                        {
+                            MessageBox.Show("Cannot enrol. Prerequisites for chosen class not met.");
+                        }
+                        else if (regSuccess == 5)
+                        {
+                            MessageBox.Show("Cannot enrol. Chosen class does not fit schedule.");
                         }
                         else
                         {

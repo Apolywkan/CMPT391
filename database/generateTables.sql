@@ -36,8 +36,8 @@ Dept_Name varchar(30))
 CREATE TABLE Time_slot (
 time_slot_id int primary key,
 day varchar(15),
-start_time varchar(15),
-endtime varchar(15))
+start_time time(7),
+endtime time(7))
 
 CREATE TABLE Classroom (
 building int,
