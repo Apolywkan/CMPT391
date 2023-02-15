@@ -39,11 +39,6 @@ day varchar(15),
 start_time time(7),
 endtime time(7))
 
-CREATE TABLE Classroom (
-building int,
-room_number int,
-capacity int)
-
 CREATE TABLE Takes (
 SID int,
 CourseID varchar(10),
