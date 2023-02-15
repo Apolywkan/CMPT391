@@ -5,16 +5,6 @@ declare @classNum int
 select @bldgNum = 5
 select @classNum = 100
 
-while @bldgNum >= 5 and @bldgNum <= 7
-begin
-	while @classNum >= 100 and @classNum <= 300
-	begin
-		INSERT INTO Classroom VALUES(@bldgNum, @classNum, 40)
-		select @classNum = @classNum + 1
-	end
-	select @bldgNum = @bldgNum + 1
-	select @classNum = 100
-end
 
 --Populate Department table-----------------------------------------
 INSERT INTO Department VALUES('Computer Science', 5, 95000.00),
@@ -169,14 +159,11 @@ INSERT INTO Teaches VALUES (1, 'CMPT100', 1, 'winter', 2023), (1, 'CMPT220', 5, 
 (3, 'BUSN130', 11, 'winter', 2023), (3, 'BUSN160', 12, 'winter', 2023),
 (4, 'BUSN250', 15, 'winter', 2023), (4, 'BUSN310', 17, 'winter', 2023),
 (5, 'MATH100', 19, 'winter', 2023), (5, 'MATH190', 22, 'winter', 2023),
-(6, 'MATH250', 24, 'winter', 2023), (6, 'MATH280', 25, 'winter', 2023),
+(6, 'MATH250', 24, 'winter', 2023), (6, 'MATH280', 25, 'winter', 2023)
 
 
 
 --Populate Prereq table--------------------------------------------------
-
-delete from Prereq where CourseID != ''
-
 
 INSERT INTO Prereq VALUES 
 ('BUSN340', 'BUSN100'),
