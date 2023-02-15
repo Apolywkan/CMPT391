@@ -338,6 +338,13 @@ namespace CMPT_391_Student_Registration
 
             }
         }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Login loginArea = new Login();
+            loginArea.Show();
+            this.Hide();
+        }
     }
 }
 
