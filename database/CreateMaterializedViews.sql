@@ -1,23 +1,7 @@
-Create view vWMathCourses
-With SchemaBinding
+Create view vWTimeSection
+With Schemabinding
 as
-SELECT dbo.Course.CourseID from dbo.Course WHERE dbo.Course.CourseID like 'MATH' + '%'
+SELECT S.sec_id, S.time_slot_id, S.CourseID, TS.day, TS.start_time, TS.endtime, S.building, S.room_number, S.semester, S.capacity, S.enrollment FROM dbo.Time_slot as TS, dbo.Section as S WHERE TS.time_slot_id = S.time_slot_id
 
-Create Unique Clustered Index UIX_vWMathCourses_CourseID
-on dbo.vWMathCourses(CourseID)
-
-Create view vWBusinessCourses
-With SchemaBinding
-as
-SELECT dbo.Course.CourseID from dbo.Course WHERE dbo.Course.CourseID like 'BUSN' + '%'
-
-Create Unique Clustered Index UIX_vWBusinessCourses_CourseID
-on dbo.vWBusinessCourses(CourseID)
-
-Create view vWComputerCourses
-With SchemaBinding
-as
-SELECT dbo.Course.CourseID from dbo.Course WHERE dbo.Course.CourseID like 'CMPT' + '%'
-
-Create Unique Clustered Index UIX_vWComputerCourses_CourseID
-on dbo.vWComputerCourses(CourseID)
+Create Unique Clustered Index UIX_vWTimeSection_joined
+on vWTimeSection(sec_id)

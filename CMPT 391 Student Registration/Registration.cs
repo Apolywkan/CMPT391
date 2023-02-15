@@ -26,7 +26,7 @@ namespace CMPT_391_Student_Registration
         {
             InitializeComponent();
             ///////////////////////////////
-            String connectionString = "Server = LAPTOP-JPNKMR; Database = 391database; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-JSPRNKM; Database = 391database; Trusted_Connection = yes;";
             // Need to change server to your personal SQL server before using (and Database if different)
             // Adam: DESKTOP-SO5MCT3
             // Zach: LAPTOP-HUT8634L
@@ -60,10 +60,15 @@ namespace CMPT_391_Student_Registration
 
         private void Registration_Load(object sender, EventArgs e)
         {
+            update_takes();
+        }
+
+        private void update_takes()
+        {
             string year = "2023";
             string term = "Winter";
             term_label.Text = year + " " + term + " Term";
-
+            myCommand.CommandType = CommandType.Text;
             myCommand.CommandText = "SELECT name from Student JOIN Logins ON Student.SID = Logins.SID WHERE Student.SID = " + SID;
 
             string input = "";
@@ -105,6 +110,7 @@ namespace CMPT_391_Student_Registration
             // View classes tab
             //sql command using stored procedure
             myCommand.CommandText = "SELECT S.*, T.grades, TS.day, TS.start_time, TS.endtime from Takes as T, Section as S, Time_slot as TS where T.sec_id = S.sec_id and S.time_slot_id = TS.time_slot_id and SID = " + SID;
+            //myCommand.CommandText = "SELECT * from vWFullCourses where SID = " + SID;
 
             try
             {
@@ -115,9 +121,9 @@ namespace CMPT_391_Student_Registration
                 while (myReader.Read())
                 {
                     //add results to the data grid view
-                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["sec_id"].ToString(),
-                        myReader["day"].ToString(), myReader["start_time"].ToString(), myReader["endtime"].ToString(),
-                        myReader["building"].ToString(), myReader["room_number"].ToString(), myReader["semester"].ToString(),
+                    user_class_view.Rows.Add(myReader["CourseID"].ToString(), myReader["day"].ToString(),
+                        myReader["start_time"].ToString(), myReader["endtime"].ToString(), myReader["building"].ToString(),
+                        myReader["room_number"].ToString(), myReader["sec_id"].ToString(), myReader["semester"].ToString(),
                         myReader["year"].ToString(), myReader["grades"].ToString());
                 }
                 myReader.Close();
@@ -229,15 +235,42 @@ namespace CMPT_391_Student_Registration
 
                         regSuccess = (int)retval.Value;
 
+                        /* regSuccess values:
+                            1 = success
+                            2 = doesnt fit schedule
+                            3 = enrollment >= capacity
+                            4 = prereq not met
+                            5 = already enrolled
+                        */
+
                         if (regSuccess == 1)
                         {
                             MessageBox.Show(successMessage);
                             // return;
+                            update_takes();
+                            class_search_btn.PerformClick();
+                        }
+                        else if (regSuccess == 2)
+                        {
+                            MessageBox.Show("Cannot enrol. Already enrolled in chosen class.");
+                        }
+                        else if (regSuccess == 3)
+                        {
+                            MessageBox.Show("Cannot enrol. Chosen class is full.");
+                        }
+                        else if (regSuccess == 4)
+                        {
+                            MessageBox.Show("Cannot enrol. Prerequisites for chosen class not met.");
+                        }
+                        else if (regSuccess == 5)
+                        {
+                            MessageBox.Show("Cannot enrol. Chosen class does not fit schedule.");
                         }
                         else
                         {
                             MessageBox.Show(failMessage);
                         }
+                        myCommand.CommandType = CommandType.Text;
 
                     }
                     catch (Exception ex)
@@ -293,6 +326,9 @@ namespace CMPT_391_Student_Registration
                     {
                         myCommand.CommandText = "DELETE FROM Takes WHERE SID = " + SID + "and CourseID = '" + course_id + "'";
                         myCommand.ExecuteNonQuery();
+                        myCommand.CommandText = "UPDATE Section SET Section.enrollment = enrollment - 1 WHERE Section.CourseID = '" + course_id + "'; ";
+                        myCommand.ExecuteNonQuery();
+                        update_takes();
                     }
                     catch (Exception ex)
                     {
@@ -301,6 +337,13 @@ namespace CMPT_391_Student_Registration
                 }
 
             }
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Login loginArea = new Login();
+            loginArea.Show();
+            this.Hide();
         }
     }
 }

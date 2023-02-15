@@ -36,13 +36,8 @@ Dept_Name varchar(30))
 CREATE TABLE Time_slot (
 time_slot_id int primary key,
 day varchar(15),
-start_time varchar(15),
-endtime varchar(15))
-
-CREATE TABLE Classroom (
-building int,
-room_number int,
-capacity int)
+start_time time(7),
+endtime time(7))
 
 CREATE TABLE Takes (
 SID int,
@@ -60,8 +55,8 @@ semester varchar(15),
 year int)
 
 CREATE TABLE Prereq (
-CourseID int,
-preCourseID int)
+CourseID varchar(30),
+preCourseID varchar(30))
 
 CREATE TABLE Logins (
 SID int,

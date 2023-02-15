@@ -65,9 +65,10 @@ begin
 end
 
 --Populate Time_slot----------------------------------------------------------
-INSERT INTO Time_slot VALUES(1, 'MWF', '9:00', '10:00'), (2, 'MWF', '10:00', '11:00'), (3, 'MWF', '11:00', '12:00'),
-(4, 'MWF', '1:00', '2:00'), (5, 'MWF', '2:00', '3:00'), (6, 'T/TH', '9:30', '11:00'),
-(7, 'T/TH', '11:00', '12:30'), (8, 'T/TH', '12:30', '2:00'), (9, 'T/TH', '2:00', '3:30')
+INSERT INTO Time_slot VALUES(1, 'MWF', '08:00', '09:00'), (2, 'MWF', '09:00', '10:00'), (3, 'MWF', '10:00', '11:00'),
+(4, 'MWF', '12:00', '13:00'), (5, 'MWF', '13:00', '14:00'), (6, 'T/TH', '08:30', '10:00'),
+(7, 'T/TH', '10:00', '11:30'), (8, 'T/TH', '11:30', '13:00'), (9, 'T/TH', '13:00', '14:30'),
+(10, 'MWF', '08:00', '11:00'), (11, 'T/TH', '10:00', '13:00')
 
 --Populate Logins table---------------------------------------------------
 declare @loginIndex int
@@ -80,42 +81,87 @@ begin
 end
 
 --Populate Section table-----------------------------------------------------------
-declare @secID int
-declare @sectionIndex int
-declare @cNum int
-select @secID = 1
-select @sectionIndex = 1
-select @cNum = 100
+DECLARE @secID int
+DECLARE @sectionIndex int
+DECLARE @cNum int
+SELECT @secID = 1
+SELECT @sectionIndex = 1
+SELECT @cNum = 100
 
-while @sectionIndex >= 1 and @sectionIndex <= 9
-begin
-	INSERT INTO Section VALUES (@secID, 'CMPT' + convert(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 5, 313, 40, 0)
-	select @cNum = @cNum + 30
-	select @sectionIndex = @sectionIndex + 1
-	select @secID = @secID + 1
-end
+WHILE @sectionIndex >= 1 AND @sectionIndex <= 9
+BEGIN
+	INSERT INTO Section 
+    VALUES (@secID, 'CMPT' + CONVERT(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 
+            FLOOR(RAND()*(3-1+1)+5), 
+            CASE FLOOR(RAND()*(9-1+1)+1) 
+              WHEN 1 THEN '101' 
+              WHEN 2 THEN '102' 
+              WHEN 3 THEN '103' 
+              WHEN 4 THEN '201' 
+              WHEN 5 THEN '202' 
+              WHEN 6 THEN '203' 
+              WHEN 7 THEN '301' 
+              WHEN 8 THEN '302' 
+              WHEN 9 THEN '303' 
+			  ELSE '101'
+            END, 
+            40, 0)
+	SELECT @cNum = @cNum + 30
+	SELECT @sectionIndex = @sectionIndex + 1
+	SELECT @secID = @secID + 1
+END
 
-select @cNum = 100
-select @sectionIndex = 1
+SELECT @cNum = 100
+SELECT @sectionIndex = 1
 
-while @sectionIndex >= 1 and @sectionIndex <= 9
-begin
-	INSERT INTO Section VALUES(@secID, 'BUSN' + convert(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 5, 313, 40, 0)
-	select @cNum = @cNum + 30
-	select @sectionIndex = @sectionIndex + 1
-	select @secID = @secID + 1
-end
+WHILE @sectionIndex >= 1 AND @sectionIndex <= 9
+BEGIN
+	INSERT INTO Section 
+    VALUES(@secID, 'BUSN' + CONVERT(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 
+           FLOOR(RAND()*(3-1+1)+5), 
+           CASE FLOOR(RAND()*(9-1+1)+1) 
+              WHEN 1 THEN '101' 
+              WHEN 2 THEN '102' 
+              WHEN 3 THEN '103' 
+              WHEN 4 THEN '201' 
+              WHEN 5 THEN '202' 
+              WHEN 6 THEN '203' 
+              WHEN 7 THEN '301' 
+              WHEN 8 THEN '302' 
+              WHEN 9 THEN '303' 
+			  ELSE '101'
+           END, 
+           40, 0)
+	SELECT @cNum = @cNum + 30
+	SELECT @sectionIndex = @sectionIndex + 1
+	SELECT @secID = @secID + 1
+END
 
-select @cNum = 100
-select @sectionIndex = 1
+SELECT @cNum = 100
+SELECT @sectionIndex = 1
 
-while @sectionIndex >= 1 and @sectionIndex <= 9
-begin
-	INSERT INTO Section VALUES(@secID, 'MATH' + convert(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 5, 313, 40, 0)
-	select @cNum = @cNum + 30
-	select @sectionIndex = @sectionIndex + 1
-	select @secID = @secID + 1
-end
+WHILE @sectionIndex >= 1 AND @sectionIndex <= 9
+BEGIN
+	INSERT INTO Section 
+    VALUES(@secID, 'MATH' + CONVERT(varchar(5), @cNum), 'winter', 2023, @sectionIndex, 
+           FLOOR(RAND()*(3-1+1)+5), 
+           CASE FLOOR(RAND()*(9-1+1)+1) 
+              WHEN 1 THEN '101' 
+              WHEN 2 THEN '102' 
+              WHEN 3 THEN '103' 
+              WHEN 4 THEN '201' 
+              WHEN 5 THEN '202' 
+              WHEN 6 THEN '203' 
+              WHEN 7 THEN '301' 
+              WHEN 8 THEN '302' 
+              WHEN 9 THEN '303' 
+			  ELSE '101'
+           END, 
+           40, 0)
+	SELECT @cNum = @cNum + 30
+	SELECT @sectionIndex = @sectionIndex + 1
+	SELECT @secID = @secID + 1
+END
 
 --Populate Teaches------------------------------------------------------
 INSERT INTO Teaches VALUES (1, 'CMPT100', 1, 'winter', 2023), (1, 'CMPT220', 5, 'winter', 2023),
@@ -123,4 +169,29 @@ INSERT INTO Teaches VALUES (1, 'CMPT100', 1, 'winter', 2023), (1, 'CMPT220', 5, 
 (3, 'BUSN130', 11, 'winter', 2023), (3, 'BUSN160', 12, 'winter', 2023),
 (4, 'BUSN250', 15, 'winter', 2023), (4, 'BUSN310', 17, 'winter', 2023),
 (5, 'MATH100', 19, 'winter', 2023), (5, 'MATH190', 22, 'winter', 2023),
-(6, 'MATH250', 24, 'winter', 2023), (6, 'MATH280', 25, 'winter', 2023)
+(6, 'MATH250', 24, 'winter', 2023), (6, 'MATH280', 25, 'winter', 2023),
+
+
+
+--Populate Prereq table--------------------------------------------------
+
+delete from Prereq where CourseID != ''
+
+
+INSERT INTO Prereq VALUES 
+('BUSN340', 'BUSN100'),
+('BUSN340', 'BUSN160'),
+('BUSN340', 'BUSN280'),
+('CMPT310','CMPT130'),
+('CMPT310','CMPT100'),
+('CMPT310','CMPT250'),
+('CMPT340','CMPT100'),
+('CMPT250','CMPT100'),
+('MATH340','MATH310'),
+('MATH340','MATH280'),
+('MATH340','MATH100')
+
+
+--Populate special--------------------------------------------------------
+INSERT INTO Course VALUES ('CHEM100', 'chem', 3, 'Science'), ('CHEM200', 'chem', 3, 'Science')
+INSERT INTO Section VALUES (28, 'CHEM100', 'winter', 2023, 10, 5, 313, 40, 0), (29, 'CHEM200', 'winter', 2023, 11, 5, 313, 40, 0)
